@@ -61,27 +61,28 @@ namespace Ordenamiento
                 arreglo_botones[0].Text = dato  .ToString();
                 Calcular_Longitud();
             }
-            Numeros Datos = new Numeros();      //Instanciamos la clase Numeros
-            public void BubbleSort(ref int[] arreglo, ref Button[] Arreglo_Numeros)
-            {
-                for(int i = 0; i < arreglo.Length; i++)
-                {
-                    for(int j = 0; j < arreglo.Length - 1; j++) 
-                    {
-                        if (arreglo[i] == arreglo[j + 1])
-                        {
-                            int aux = arreglo[j];
-                            arreglo[j] = arreglo[j + 1];
-                            arreglo[j + 1] = aux;
-                        }
-                    }
-                }
-            }
             public Button[] Arreglo_Botones()
             {
                 return arreglo_botones;
             }
         }
+        Numeros Datos = new Numeros();      //Instanciamos la clase Numeros
+        public void BubbleSort(ref int[] arreglo, ref Button[] Arreglo_Numeros)
+        {
+            for (int i = 0; i < arreglo.Length; i++)
+            {
+                for (int j = 0; j < arreglo.Length - 1; j++)
+                {
+                    if (arreglo[i] == arreglo[j + 1])
+                    {
+                        int aux = arreglo[j];
+                        arreglo[j] = arreglo[j + 1];
+                        arreglo[j + 1] = aux;
+                    }
+                }
+            }
+        }
+
         private void txtNumero_TextChanged(object sender, EventArgs e)
         {
 
@@ -89,7 +90,19 @@ namespace Ordenamiento
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                int num = Convert.ToInt32(txtNumero.Text);
+                Datos.Insertar_Dato(num);                   //se agrega objeto a "Datos"
+                Arreglos_numeros = Datos.Obtener_Arreglo(); //se sacan los  arreglos del objeto "Datos"
+                Arreglo = Datos.Arreglo_Botones();
+            }
+            catch
+            {
+                MessageBox.Show("Solo se admiten números enteros");
+            }
+            estado = true; //Cambia el valor de variable de control de simulación
+            tabPage1.Refresh();
         }
 
         private void tabPage1_Paint(object sender, PaintEventArgs e)
