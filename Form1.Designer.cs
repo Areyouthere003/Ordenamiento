@@ -75,6 +75,7 @@
             this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnOrdenar
             // 
@@ -91,18 +92,19 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(715, 217);
+            this.tabPage1.Size = new System.Drawing.Size(715, 225);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ver Simulación";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.tabPage1_Paint);
             // 
             // tabPages
             // 
             this.tabPages.Controls.Add(this.tabPage1);
-            this.tabPages.Location = new System.Drawing.Point(44, 184);
+            this.tabPages.Location = new System.Drawing.Point(44, 176);
             this.tabPages.Name = "tabPages";
             this.tabPages.SelectedIndex = 0;
-            this.tabPages.Size = new System.Drawing.Size(723, 243);
+            this.tabPages.Size = new System.Drawing.Size(723, 251);
             this.tabPages.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabPages.TabIndex = 5;
             // 
