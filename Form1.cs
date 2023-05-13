@@ -61,6 +61,22 @@ namespace Ordenamiento
                 arreglo_botones[0].Text = dato  .ToString();
                 Calcular_Longitud();
             }
+            Numeros Datos = new Numeros();      //Instanciamos la clase Numeros
+            public void BubbleSort(ref int[] arreglo, ref Button[] Arreglo_Numeros)
+            {
+                for(int i = 0; i < arreglo.Length; i++)
+                {
+                    for(int j = 0; j < arreglo.Length - 1; j++) 
+                    {
+                        if (arreglo[i] == arreglo[j + 1])
+                        {
+                            int aux = arreglo[j];
+                            arreglo[j] = arreglo[j + 1];
+                            arreglo[j + 1] = aux;
+                        }
+                    }
+                }
+            }
             public Button[] Arreglo_Botones()
             {
                 return arreglo_botones;
