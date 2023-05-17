@@ -58,7 +58,7 @@ namespace Ordenamiento
                 arreglo_botones[0].Width = 50;          //Definir ancho
                 arreglo_botones[0].Height = 50;         //Definir Alto
                 arreglo_botones[0].BackColor = Color.GreenYellow; //Definir color del botón
-                arreglo_botones[0].Text = dato  .ToString();
+                arreglo_botones[0].Text = dato.ToString();
                 Calcular_Longitud();
             }
             public Button[] Arreglo_Botones()
@@ -107,7 +107,43 @@ namespace Ordenamiento
 
         private void tabPage1_Paint(object sender, PaintEventArgs e)
         {
+            if (estado)
+            {
+                Point xy = new Point(50, 70);  //método de la librería Drawing
+                try
+                {
+                    Dibujar_Arreglo(ref Arreglo, xy, ref tabPage1);
+                }
+                catch { }
+                estado = false;
+            }
+        }
+        public void Dibujar_Arreglo(ref Button[] Arreglo, Point xy, ref TabPage t)
+        {
+            for (int i = 1; i < Arreglo.Length; i++)
+            {
+                Arreglo[i].Location = xy;
+                t.Controls.Add(Arreglo[i]);
+                xy += new Size(70, 0);
+            }
 
+        }
+
+        private void btnOrdenar_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor; //cambiamos la apariencia del modo en espera
+
+            btnOrdenar.Enabled = false;
+            txtNumero.Enabled = false;
+            btnAgregar.Enabled = false;
+
+            BubbleSort(ref Arreglos_numeros, ref Arreglo);
+
+            this.Cursor = Cursors.Default; //Retomar apariencia del cursor por defecto
+
+            btnOrdenar.Enabled = true;
+            txtNumero.Enabled = true;
+            btnAgregar.Enabled = true;
         }
     }
 }

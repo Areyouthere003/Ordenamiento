@@ -85,6 +85,7 @@
             this.btnOrdenar.TabIndex = 4;
             this.btnOrdenar.Text = "Ordenar";
             this.btnOrdenar.UseVisualStyleBackColor = true;
+            this.btnOrdenar.Click += new System.EventHandler(this.btnOrdenar_Click);
             // 
             // tabPage1
             // 
