@@ -5,8 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Ordenamiento
 {
@@ -73,8 +75,10 @@ namespace Ordenamiento
             {
                 for (int j = 0; j < arreglo.Length - 1; j++)
                 {
+                    //Intercambio(ref Arreglo_Numeros, j + 1, j);
                     if (arreglo[i] == arreglo[j + 1])
                     {
+                        Intercambio(ref Arreglo_Numeros, j + 1, j);
                         int aux = arreglo[j];
                         arreglo[j] = arreglo[j + 1];
                         arreglo[j + 1] = aux;
@@ -109,12 +113,14 @@ namespace Ordenamiento
         {
             if (estado)
             {
-                Point xy = new Point(50, 70);  //método de la librería Drawing
+                Point xy = new Point(50, 70);   //método de librería Drawing
                 try
                 {
                     Dibujar_Arreglo(ref Arreglo, xy, ref tabPage1);
+                    //Función que dibujará los datos en la simulación
                 }
-                catch { }
+                catch
+                { }
                 estado = false;
             }
         }
@@ -126,12 +132,11 @@ namespace Ordenamiento
                 t.Controls.Add(Arreglo[i]);
                 xy += new Size(70, 0);
             }
-
         }
 
         private void btnOrdenar_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor; //cambiamos la apariencia del modo en espera
+            this.Cursor = Cursors.WaitCursor;   //Cambiamos la apariencia del cursor a modo espera
 
             btnOrdenar.Enabled = false;
             txtNumero.Enabled = false;
@@ -139,11 +144,70 @@ namespace Ordenamiento
 
             BubbleSort(ref Arreglos_numeros, ref Arreglo);
 
-            this.Cursor = Cursors.Default; //Retomar apariencia del cursor por defecto
+            this.Cursor = Cursors.Default;  //retorna la apariencia del cursor a uno por defecto
 
             btnOrdenar.Enabled = true;
             txtNumero.Enabled = true;
             btnAgregar.Enabled = true;
+        }
+        public void Intercambio(ref Button[] boton, int a, int b)
+        {
+            string temp = boton[a].Text;    //Variable temporal
+
+            Point pa = boton[a].Location;   //definimos la posición inicial
+            Point pb = boton[b].Location;   //definimos posición final
+            int diferencia = pa.X - pb.X;   //distacia a moverse en forma horizontal
+            int x = 10;
+            int y = 10;
+            int t = 70;
+
+            while (y != 70)
+            {
+                Thread.Sleep(t);
+                /*Cantidad de movimientos a realizar cada botón en forma vertical
+                para agregar pausas al hilo de la ejecución */
+                boton[a].Location += new Size(0, 10);
+                boton[b].Location += new Size(0, -10);
+                y += 10;
+            }
+            while (x != diferencia + 10)     //Movimiento horizontal
+            {
+                Thread.Sleep(t);
+                boton[a].Location += new Size(-10, 0);
+                boton[b].Location -= new Size(10, 0);
+                x += 10;
+            }
+
+            y = 0;
+
+            while (y != -60)                //Movimiento vertical
+            {
+                Thread.Sleep(t);
+                boton[a].Location += new Size(0, -10);
+                boton[b].Location += new Size(0, +10);
+                y -= 10;
+            }
+
+            boton[a].Text = boton[b].Text;
+            boton[b].Text = temp;
+            boton[b].Location = pb;
+            boton[a].Location = pa;
+            estado = true;
+            tabPage1.Refresh();
+        }
+        static void Ordenamiento_Insercion(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                int temp = array[i];
+                int j = i - 1;
+                while ((j >= 0) && (array[j] > temp))
+                {
+                    array[j + 1] = array[j];
+                    j--;
+                }
+                array[j + 1] = temp;
+            }
         }
     }
 }
