@@ -41,9 +41,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 96);
+            this.label1.Location = new System.Drawing.Point(187, 273);
+            this.label1.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.Size = new System.Drawing.Size(249, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Insertar Número";
             // 
@@ -53,25 +54,28 @@
             this.label2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(242, 32);
+            this.label2.Location = new System.Drawing.Point(766, 91);
+            this.label2.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(346, 20);
+            this.label2.Size = new System.Drawing.Size(967, 55);
             this.label2.TabIndex = 1;
             this.label2.Text = "Simulación Método Ordenamiento Burbuja";
             // 
             // txtNumero
             // 
-            this.txtNumero.Location = new System.Drawing.Point(147, 93);
+            this.txtNumero.Location = new System.Drawing.Point(466, 265);
+            this.txtNumero.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(81, 20);
+            this.txtNumero.Size = new System.Drawing.Size(248, 44);
             this.txtNumero.TabIndex = 2;
             this.txtNumero.TextChanged += new System.EventHandler(this.txtNumero_TextChanged);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(299, 91);
+            this.btnAgregar.Location = new System.Drawing.Point(947, 259);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(238, 65);
             this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -79,20 +83,23 @@
             // 
             // btnOrdenar
             // 
-            this.btnOrdenar.Location = new System.Drawing.Point(411, 91);
+            this.btnOrdenar.Location = new System.Drawing.Point(1302, 259);
+            this.btnOrdenar.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.btnOrdenar.Name = "btnOrdenar";
-            this.btnOrdenar.Size = new System.Drawing.Size(75, 23);
+            this.btnOrdenar.Size = new System.Drawing.Size(238, 65);
             this.btnOrdenar.TabIndex = 4;
             this.btnOrdenar.Text = "Ordenar";
             this.btnOrdenar.UseVisualStyleBackColor = true;
+            this.btnOrdenar.Click += new System.EventHandler(this.btnOrdenar_Click);
             // 
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(12, 58);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(715, 225);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.tabPage1.Size = new System.Drawing.Size(2266, 644);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ver Simulación";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -101,24 +108,26 @@
             // tabPages
             // 
             this.tabPages.Controls.Add(this.tabPage1);
-            this.tabPages.Location = new System.Drawing.Point(44, 176);
+            this.tabPages.Location = new System.Drawing.Point(139, 501);
+            this.tabPages.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.tabPages.Name = "tabPages";
             this.tabPages.SelectedIndex = 0;
-            this.tabPages.Size = new System.Drawing.Size(723, 251);
+            this.tabPages.Size = new System.Drawing.Size(2290, 714);
             this.tabPages.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabPages.TabIndex = 5;
             // 
             // Burbuja
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(2533, 1281);
             this.Controls.Add(this.tabPages);
             this.Controls.Add(this.btnOrdenar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.Name = "Burbuja";
             this.Text = "Método de ordenamiento BubbleSort";
             this.tabPages.ResumeLayout(false);
