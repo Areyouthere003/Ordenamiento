@@ -75,7 +75,7 @@ namespace Ordenamiento
             {
                 for (int j = 0; j < arreglo.Length - 1; j++)
                 {
-                   //Intercambio(ref Arreglo_Numeros, j + 1, j);
+                    //Intercambio(ref Arreglo_Numeros, j + 1, j);
                     if (arreglo[i] == arreglo[j + 1])
                     {
                         Intercambio(ref Arreglo_Numeros, j + 1, j);
@@ -195,12 +195,12 @@ namespace Ordenamiento
             estado = true;
             tabPage1.Refresh();
         }
-        static void Ordenamiento_Insercion (int[] array)
+        static void Ordenamiento_Insercion(int[] array)
         {
-            for ( int i = 0; i < array.Length; i++ )
+            for (int i = 0; i < array.Length; i++)
             {
                 int temp = array[i];
-                int j = i -1;
+                int j = i - 1;
                 while ((j >= 0) && (array[j] > temp))
                 {
                     array[j + 1] = array[j];
